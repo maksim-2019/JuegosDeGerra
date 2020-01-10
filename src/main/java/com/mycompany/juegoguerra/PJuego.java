@@ -25,7 +25,8 @@ public class PJuego {
         
         for(int i=1;i < arraySoldado.length; i++){
             arraySoldado[i] = new Soldado("Soldado"+i, 100);
-            //arrayArma[i] = new Arma("Pistola", 30,);
+            arrayMunicion[i] = new Municion("9mm-"+i, 3);
+            arrayArma[i] = new Arma("Pistola"+i, 30, arrayMunicion[i]);
             System.out.println(arraySoldado[i]);
         }
     }
