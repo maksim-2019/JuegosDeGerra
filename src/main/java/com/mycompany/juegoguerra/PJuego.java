@@ -22,11 +22,11 @@ public class PJuego {
         Soldado arraySoldado[] = new Soldado[13];
         Arma arrayArma[] = new Arma[13];
         Municion arrayMunicion[] = new Municion[13];
-        
-        for(int i=1;i < arraySoldado.length; i++){
-            arraySoldado[i] = new Soldado("Soldado"+i, 100);
-            arrayMunicion[i] = new Municion("9mm-"+i, 3);
-            arrayArma[i] = new Arma("Pistola"+i, 30, arrayMunicion[i]);
+        //Creacion de x numero de soldados y guardarlos en una array.
+        for (int i = 1; i < arraySoldado.length; i++) {
+            arraySoldado[i] = new Soldado("Soldado" + i, 100);
+            arrayMunicion[i] = new Municion("9mm-" + i, 3);
+            arrayArma[i] = new Arma("Pistola" + i, 30, arrayMunicion[i]);
             System.out.println(arraySoldado[i]);
         }
     }

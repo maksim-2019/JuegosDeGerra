@@ -14,7 +14,7 @@ public class Arma {
     private String nombre;
     private double daño;
     private Municion municion;
-    
+
     public Arma(String nombre, double daño, Municion municion1) {
         this.nombre = nombre;
         this.daño = daño;
@@ -43,6 +43,11 @@ public class Arma {
             this.municion.setCantidad(this.municion.getCantidad() - 1);
         }
 
+    }
+
+    public Arma copia() {
+        Arma arma1 = new Arma(this.nombre, this.daño, this.municion);
+        return arma1;
     }
 
     public void disparar(Medico medico1) {

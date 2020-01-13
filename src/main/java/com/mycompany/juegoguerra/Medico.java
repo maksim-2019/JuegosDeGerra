@@ -74,4 +74,9 @@ public class Medico {
             medico1.setVida(medico1.getVida() + this.cura);
         }
     }
+
+    public Medico copia() {
+        Medico medico1 = new Medico(nombre, vida, cura);
+        return medico1;
+    }
 }

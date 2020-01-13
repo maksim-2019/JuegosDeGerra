@@ -10,6 +10,7 @@ package com.mycompany.juegoguerra;
  * @author maksim
  */
 public class Municion {
+
     private String id;
     private int cantidad;
 
@@ -33,13 +34,18 @@ public class Municion {
     public void setId(String id) {
         this.id = id;
     }
-    
-    public void restar(){
-        if(this.cantidad == 0){
+
+    public void restar() {
+        if (this.cantidad == 0) {
             System.out.println("No queda Municion");
-        }else {
+        } else {
             this.cantidad--;
         }
 
+    }
+
+    public Municion copia() {
+        Municion municion1 = new Municion(id, cantidad);
+        return municion1;
     }
 }

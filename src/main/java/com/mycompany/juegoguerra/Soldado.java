@@ -35,6 +35,7 @@ public class Soldado {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
     public boolean isMuerto() {
         return muerto;
     }
@@ -42,7 +43,7 @@ public class Soldado {
     public void setMuerto(boolean muerto) {
         this.muerto = muerto;
     }
-    
+
     public void atacar(Arma arma1, Soldado soldado1) {
         if (soldado1.getVida() > 0) {
             arma1.disparar(soldado1);
@@ -52,7 +53,7 @@ public class Soldado {
         }
 
     }
-    
+
     public void atacar(Arma arma1, Medico medico1) {
         if (medico1.getVida() > 0) {
             arma1.disparar(medico1);
@@ -62,10 +63,14 @@ public class Soldado {
         }
     }
 
+    public Soldado copia() {
+        Soldado soldado1 = new Soldado(this.nombre, this.vida);
+        return soldado1;
+    }
+
     @Override
     public String toString() {
         return "Soldado{" + "nombre=" + nombre + ", vida=" + vida + ", muerto=" + muerto + '}';
     }
-
 
 }
