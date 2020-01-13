@@ -37,12 +37,25 @@ public class Arma {
         this.nombre = nombre;
     }
 
+    public Municion getMunicion() {
+        return municion;
+    }
+
+    public void setMunicion(Municion municion) {
+        this.municion = municion;
+    }
+
     public void disparar(Soldado soldado1) {
         if (this.municion.getCantidad() > 0) {
             soldado1.setVida(soldado1.getVida() - this.daño);
             this.municion.setCantidad(this.municion.getCantidad() - 1);
         }
 
+    }
+
+    @Override
+    public String toString() {
+        return "Arma{" + "nombre=" + nombre + ", da\u00f1o=" + daño + ", municion=" + municion + '}';
     }
 
     public Arma copia() {

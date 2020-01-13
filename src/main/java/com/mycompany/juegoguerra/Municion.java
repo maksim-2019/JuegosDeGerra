@@ -44,6 +44,11 @@ public class Municion {
 
     }
 
+    @Override
+    public String toString() {
+        return "Municion{" + "id=" + id + ", cantidad=" + cantidad + '}';
+    }
+
     public Municion copia() {
         Municion municion1 = new Municion(id, cantidad);
         return municion1;

@@ -15,10 +15,13 @@ public class PJuego {
 
     public static void main(String[] args) {
 
-        int participantes = 5;
+        int participantes = 12;
         Random aleatorio = new Random();
         int resul = aleatorio.nextInt(participantes) + 1;
-
+        int uno = 0, dos = 0;
+        int contador = 0;
+        boolean si1 = false;
+        boolean si2 = false;
         Soldado arraySoldado[] = new Soldado[13];
         Arma arrayArma[] = new Arma[13];
         Municion arrayMunicion[] = new Municion[13];
@@ -27,7 +30,41 @@ public class PJuego {
             arraySoldado[i] = new Soldado("Soldado" + i, 100);
             arrayMunicion[i] = new Municion("9mm-" + i, 3);
             arrayArma[i] = new Arma("Pistola" + i, 30, arrayMunicion[i]);
+            System.out.println(arrayArma[i]);
             System.out.println(arraySoldado[i]);
         }
+        do {
+        do {
+            do {
+                uno = aleatorio.nextInt(participantes) + 1;
+                if (arraySoldado[uno].isMuerto() == false) {
+                    si1 = true;
+                }
+            } while (si1 != true);
+            do {
+                dos = aleatorio.nextInt(participantes) + 1;
+                if (arraySoldado[dos].isMuerto() == false) {
+                    si2 = true;
+                }
+            } while (si2 != true);
+
+        } while (uno == dos);
+        
+//            if (arraySoldado[dos].isMuerto() == true) {
+//                System.out.println("El enemigo esta abatido");
+//            } else if (arraySoldado[uno].isMuerto() == true) {
+//                System.out.println("No puedes disparar. A no ser que seas un zombi");
+//            } else {
+                arraySoldado[uno].atacar(arrayArma[uno], arraySoldado[dos]);
+                System.out.println("El " + arraySoldado[uno].getNombre() + " a atacado a " + arraySoldado[dos].getNombre());
+           // }
+            for (int i = 1; i < arraySoldado.length; i++) {
+                if (arraySoldado[i].isMuerto() == true) {
+                    contador++;
+
+                }
+            }
+
+        } while (contador != 1);
     }
 }
