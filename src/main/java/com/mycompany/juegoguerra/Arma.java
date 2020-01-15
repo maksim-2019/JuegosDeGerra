@@ -49,6 +49,9 @@ public class Arma {
         if (this.municion.getCantidad() > 0) {
             soldado1.setVida(soldado1.getVida() - this.daño);
             this.municion.setCantidad(this.municion.getCantidad() - 1);
+        }else {
+            System.out.println("Recargando...");
+            this.municion.setCantidad(3);
         }
 
     }
