@@ -5,6 +5,8 @@
  */
 package com.mycompany.juegoguerra;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 
 /**
@@ -14,7 +16,7 @@ import java.util.Random;
 public class PJuego {
 
     public static void main(String[] args) {
-
+        ArrayList<String> jugadorArray = new ArrayList<String>();
         int participantes = 12;
         Random aleatorio = new Random();
         int resul = aleatorio.nextInt(participantes) + 1;
@@ -27,6 +29,7 @@ public class PJuego {
         Municion arrayMunicion[] = new Municion[13];
         //Creacion de x numero de soldados y guardarlos en una array.
         for (int i = 1; i < arraySoldado.length; i++) {
+            jugadorArray.add("Soldado"+i);
             arraySoldado[i] = new Soldado("Soldado" + i, 100);
             arrayMunicion[i] = new Municion("9mm-" + i, 3);
             arrayArma[i] = new Arma("Pistola" + i, 30, arrayMunicion[i]);
@@ -56,15 +59,14 @@ public class PJuego {
 //                System.out.println("No puedes disparar. A no ser que seas un zombi");
 //            } else {
                 arraySoldado[uno].atacar(arrayArma[uno], arraySoldado[dos]);
+                if(arraySoldado[dos].isMuerto() == true){
+                    jugadorArray.remove(arraySoldado[dos].getNombre());
+                }
                 System.out.println("El " + arraySoldado[uno].getNombre() + " a atacado a " + arraySoldado[dos].getNombre());
            // }
-            for (int i = 1; i < arraySoldado.length; i++) {
-                if (arraySoldado[i].isMuerto() == true) {
-                    contador++;
-
-                }
-            }
-
-        } while (contador != 1);
+              
+        } while (jugadorArray.size() != 1);
+        Iterator<String> jugadorIterator = jugadorArray.iterator();
+        System.out.println("El ganador es: " + jugadorIterator.next());
     }
 }
