@@ -45,11 +45,12 @@ public class Soldado {
     }
 
     public void atacar(Arma arma1, Soldado soldado1) {
-        if (soldado1.getVida() > 0 && arma1.getMunicion().getCantidad() > 0) {
+        if (soldado1.getVida() > 0) {
             arma1.disparar(soldado1);
-        } else {
-            System.out.println("Esta Muerto");
-            soldado1.setMuerto(true);
+            if(soldado1.getVida() <= 0){
+                System.out.println("Esta Muerto");
+                soldado1.setMuerto(true);
+            }
         }
 
     }
