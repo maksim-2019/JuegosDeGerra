@@ -55,7 +55,7 @@ public class PJuego {
         do {
             do {
             do {
-                si2 = false;
+                si1 = false;
                 uno = aleatorio.nextInt(participantes);
                 if (arraySoldado[uno].isMuerto() == false) {
                     si1 = true;
